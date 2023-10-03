@@ -3,39 +3,25 @@ CREATE DATABASE employee_db;
 
 USE employee_db;
 
-CREATE TABLE courses (
-  id INT NOT NULL,
-  course_title VARCHAR(30) NOT NULL,
-  course_description TEXT NOT NULL,
-  active BOOLEAN NOT NULL,
-  date_added DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
-);
-
-CREATE TABLE students (
-  id INT NOT NULL,
+CREATE TABLE employee (
+  id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
-  active BOOLEAN NOT NULL,
-  date_updated DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
+  role_id INT,
+  manager_id INT,
+  FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE SET NULL,
+  FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
 
-CREATE TABLE instructors (
-  id INT NOT NULL,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  active BOOLEAN NOT NULL,
-  date_updated DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
+CREATE TABLE role (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL NOT NULL,
+  department_id INT NOT NULL,
+  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
 
-CREATE TABLE classrooms (
-  id INT NOT NULL,
-  building_name VARCHAR(30) NOT NULL,
-  room_number INT NOT NULL,
-  available BOOLEAN NOT NULL,
-  date_updated DATETIME NOT NULL
-)
-
-CREATE TABLE employees (
-    id INT NOT NULL,
-    
-)
+CREATE TABLE department (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(60) NOT NULL
+);

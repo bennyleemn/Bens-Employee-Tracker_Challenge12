@@ -1,6 +1,9 @@
 const express = require('express');
 // Import and require mysql2
 const mysql = require('mysql2');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,9 +20,9 @@ const db = mysql.createConnection(
     user: 'root',
     // TODO: Add MySQL password here
     password: 'bobdole1',
-    database: 'movies_db'
+    database: 'employee_db'
   },
-  console.log(`Connected to the movies_db database.`)
+  console.log(`Connected to the employee_db database.`)
 );
 
 // Create a movie
