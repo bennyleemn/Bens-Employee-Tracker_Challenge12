@@ -1,5 +1,5 @@
 SELECT *
-FROM course_names;
+FROM ;
 
 SELECT department, COUNT(id) AS number_courses
 FROM course_names

@@ -17,11 +17,12 @@ VALUES
 (2,'Director of Finance', 105000),
 (3,'Marketing Assistant', 55000),
 (6,'Engineer', 135000),
-(5,'Generalist', 79000);
-
-
+(5,'Generalist', 79000),
+(3,'Marketing Typescripter', 65000);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
-('Bobby', 'Flay', 6, NULL),
+('Bobby', 'Flay', 6, 3),
+('Billy', 'Thorton', 1, 1),
+('Ben', 'Masters', 6, NULL)
 

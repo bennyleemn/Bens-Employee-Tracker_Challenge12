@@ -26,8 +26,8 @@ const db = mysql.createConnection(
 );
 
 // Create a movie
-app.post('/api/new-movie', ({ body }, res) => {
-  const sql = `INSERT INTO movies (movie_name)
+app.post('/api/new-employee', ({ body }, res) => {
+  const sql = `INSERT INTO movies (first_name)
     VALUES (?)`;
   const params = [body.movie_name];
   
